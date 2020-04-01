@@ -6,8 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public Camera camera;
 
+    public GameController gameController;
+
+    [Header("Sound Effects")]
+
     public AudioSource coinSound;
     public AudioSource hitSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,23 +32,21 @@ public class PlayerController : MonoBehaviour
       transform.position = new Vector2 (Mathf.Clamp(mousePosition.x, -7.55f, 8.95f), -3.5f);
     }
 
-    // void OnCollisionEnter2D(Collision2D other) 
-    // {
-      
-    // }
-
     private void OnTriggerEnter2D(Collider2D other) {
       //Debug.Log("Collision!");
       switch (other.gameObject.tag)
       {
           case "Coin":
           coinSound.Play();
+          gameController.Score += 100;
           break;
           case "LandSpike":
           hitSound.Play();
+          gameController.Lives -= 1;
           break;
           case "Spinner":
           hitSound.Play();
+          gameController.Lives -= 1;
           break;
       }
     }
