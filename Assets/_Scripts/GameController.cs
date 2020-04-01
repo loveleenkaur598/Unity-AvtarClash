@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
 
     public Transform coinContainer;
+    public Transform spinnerContainer;
     public GameObject coin;
     public GameObject spinner;
 
@@ -37,7 +38,9 @@ public class GameController : MonoBehaviour
         }
         for (int count = 0; count < spinnerNum; count++)
         {
-            spinners.Add(Instantiate(spinner));
+            var newSpinner = Instantiate(spinner);
+            newSpinner.transform.parent = spinnerContainer.transform;
+            spinners.Add(newSpinner);
         }
     }
 }
