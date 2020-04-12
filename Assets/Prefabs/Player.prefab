@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1510102003053677551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.55, y: -3.5, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 1510102003053677551}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9d535186213a4c7f88466bc6b567cc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49ee80b570d5646979595d6737d7d46a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -119,8 +119,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+  gameController: {fileID: 0}
   coinSound: {fileID: 8799669877380166596}
   hitSound: {fileID: 9002169270706244207}
+  animatorController: {fileID: 1510102003053677548}
+  body: {fileID: 1270104567}
+  animation: 0
+  horizontalForce: 0.01
+  verticalForce: 0.5
+  maxHorizontalVelocity: 8
+  maxVerticalVelocity: 0.1
+  buttonClicked: 0
 --- !u!82 &1510102003053677544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -132,10 +141,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 870fd570194394d4190bd5d69fd30f1f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -424,7 +433,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -440,14 +449,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.35, y: 0.6}
+    oldSize: {x: 1.4, y: 2.4}
     newSize: {x: 0.35, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -455,22 +464,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.13499999, y: 0.22}
-      - {x: 0.10500002, y: 0.27200407}
-      - {x: -0.114999995, y: 0.29}
-      - {x: -0.1572876, y: 0.23629582}
+    - - {x: 0.5163336, y: 0.14846396}
+      - {x: 0.62475014, y: 0.56386685}
+      - {x: 0.26130295, y: 1.1056204}
+      - {x: -0.45886612, y: 1.1340365}
+      - {x: -0.63140965, y: 0.5594046}
+      - {x: -0.46232414, y: 0.13063502}
+      - {x: -0.21980906, y: -0.12841105}
       - {x: -0.14186239, y: 0.0725708}
       - {x: -0.08162844, y: -0.030151725}
       - {x: -0.074999996, y: -0.26999998}
       - {x: -0.035, y: -0.28}
       - {x: 0.024999976, y: -0.274575}
-      - {x: 0.025101662, y: -0.27454567}
-      - {x: 0.082516074, y: -0.27339327}
-      - {x: 0.0895493, y: -0.23404157}
+      - {x: -0.20357561, y: -0.122364044}
+      - {x: -0.21295404, y: -1.0920777}
+      - {x: 0.31686687, y: -1.1081619}
+      - {x: 0.36386156, y: -0.55473804}
+      - {x: 0.42299604, y: -0.37992454}
+      - {x: 0.16679049, y: -0.05082655}
       - {x: 0.08872509, y: -0.18716669}
       - {x: 0.090445876, y: -0.17514169}
       - {x: 0.08641529, y: -0.14683235}
       - {x: 0.09640026, y: -0.10769272}
       - {x: 0.077833176, y: -0.029758215}
       - {x: 0.13929164, y: 0.028279126}
-      - {x: 0.16499999, y: 0.19}
+      - {x: 0.21710062, y: -0.070504904}

@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
     [Header("Coin Configuration")]
     public Transform coinContainer;
-    public int coinNum;
+    public int coinNum = 3;
     public GameObject coin;
 
     public List<GameObject> coins;
@@ -72,6 +72,8 @@ public class GameController : MonoBehaviour
         spinners = new List<GameObject>();// empty list of type gameObject
         _buildCoinList();
 
+        _buildSpikesAndSpinnersList();
+
         Lives = 5;
         Score = 0;
     }
@@ -82,13 +84,16 @@ public class GameController : MonoBehaviour
         
     }
 
-    private void _buildCoinList(){
+    public void _buildCoinList(){
         for (int count = 0; count < coinNum; count++)
         {
             var newCoin = Instantiate(coin);
             newCoin.transform.parent = coinContainer.transform;
             coins.Add(newCoin);
         }
+    }
+
+    private void _buildSpikesAndSpinnersList(){
         for (int count = 0; count < spinnerNum; count++)
         {
             var newSpinner = Instantiate(spinner);

@@ -9,6 +9,9 @@ TagManager:
   - Coin
   - Spinner
   - Jump
+  - Fire
+  - Platform
+  - Audio
   layers:
   - Default
   - TransparentFX
