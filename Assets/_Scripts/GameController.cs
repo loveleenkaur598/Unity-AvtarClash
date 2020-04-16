@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿//
+//  Game Name: AvatarClash
+//  Source File Name : GameController.cs
+//  Author’s Name : Dipal Patel (301090880), Loveleen Kaur (301093331) , Bhavya Shah (301076681)
+//  Date Last Modified : 13 April 2020
+//  Program Description : scores, lives, coines, spikes, spinner addition is performed here
+//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,10 +43,10 @@ public class GameController : MonoBehaviour
     public Text ScoreLabel;
 
     // private instance memeber
-    private int _score;
+    public int _score;
     private int _lives;
 
-    // public properties
+    // public properties - Score Manager
     public int Score
     {
         get { return _score; }
@@ -47,9 +54,15 @@ public class GameController : MonoBehaviour
         { 
             _score = value; 
             ScoreLabel.text = "Score : " +  _score.ToString();
-            
+            // bonous on getting 5000 points
+            if(_score == 5000)
+            {Debug.Log(_score.ToString());
+                _lives += 5;
+                LivesLabel.text = "Lives : " +  _lives.ToString();
+            }
         }
     }
+    // public properties - Lives Manager
     public int Lives
     {
         get { return _lives; }
@@ -84,6 +97,8 @@ public class GameController : MonoBehaviour
         
     }
 
+    // public property - Coin Manager
+
     public void _buildCoinList(){
         for (int count = 0; count < coinNum; count++)
         {
@@ -93,6 +108,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Land Spikes and Spinner Manager
     private void _buildSpikesAndSpinnersList(){
         for (int count = 0; count < spinnerNum; count++)
         {

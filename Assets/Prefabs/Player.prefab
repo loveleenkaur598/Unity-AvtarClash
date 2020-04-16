@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b34a6857ef97b453caf68e2a97878dc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,8 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e589962f0de498d87d072430fb155c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   gameController: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  playerSpawnPoint: {fileID: 0}
   coinSound: {fileID: 8799669877380166596}
   hitSound: {fileID: 9002169270706244207}
   animatorController: {fileID: 1510102003053677548}
@@ -130,6 +131,7 @@ MonoBehaviour:
   maxHorizontalVelocity: 8
   maxVerticalVelocity: 0.1
   buttonClicked: 0
+  isGrounded: 0
 --- !u!82 &1510102003053677544
 AudioSource:
   m_ObjectHideFlags: 0

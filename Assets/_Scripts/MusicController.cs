@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿//
+//  Game Name: AvatarClash
+//  Source File Name : MusicController.cs
+//  Author’s Name : Dipal Patel (301090880), Loveleen Kaur (301093331) , Bhavya Shah (301076681)
+//  Date Last Modified : 13 April 2020
+//  Program Description : Control the sound on/off operation
+//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +22,7 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         music = GameObject.FindObjectOfType<AudioController>();
-        UpdateIconAndIcon();
+        UpdateIconAndAudio();
     }
 
     // Update is called once per frame
@@ -24,13 +31,15 @@ public class MusicController : MonoBehaviour
         
     }
 
+    // function for stoping the sound
     public void PauseMusic()
     {
         music.ToggleSound(); // update players pref
-        UpdateIconAndIcon();
+        UpdateIconAndAudio();
     }
 
-    void UpdateIconAndIcon()
+    // on toggle update sound and buttons
+    void UpdateIconAndAudio()
     {
         if(PlayerPrefs.GetInt("Muted", 0) == 0)
         {

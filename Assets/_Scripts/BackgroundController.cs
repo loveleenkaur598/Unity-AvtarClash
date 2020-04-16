@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿//
+//  Game Name: AvatarClash
+//  Source File Name : BackgroundController.cs
+//  Author’s Name : Dipal Patel (301090880), Loveleen Kaur (301093331) , Bhavya Shah (301076681)
+//  Date Last Modified : 13 April 2020
+//  Program Description : Controller Background Movement
+//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,11 +29,13 @@ public class BackgroundController : MonoBehaviour
       _checkBounds();
     }
 
+    // move the background horizontally
     private void _move()
     {
       transform.position -= new Vector3(horizontalSpeed, 0.0f, 0.0f);
     }
 
+    // reset the background after bounds check
     private void _checkBounds()
     {
       if(transform.position.x <= boundary.lowerBounds)
@@ -35,6 +44,8 @@ public class BackgroundController : MonoBehaviour
       }
     }
 
+
+    // reset the background
     private void _reset()
     {
       transform.position = new Vector2(boundary.upperBounds,0.0f);
